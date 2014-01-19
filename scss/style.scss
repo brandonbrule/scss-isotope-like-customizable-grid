@@ -1,0 +1,213 @@
+@import "compass/css3";
+
+$breakpoint-large : 1280;
+$breakpoint-medium : 1080;
+$breakpoint-small : 768;
+$breakpoint-smallest : 640;
+
+/* Return Stuff */
+@function toPX($value){
+  @return ($value * 1px)
+}
+
+@function box-size($some-number, $another-number){
+  @return ($some-number * $another-number)
+}
+
+/* Colour Boxes */
+$colors: #272E2D, #455E5B, #759E99, #BF8A36, #B05F25;
+
+@for $i from 1 through length($colors) {
+    li:nth-child(#{length($colors)}n+#{$i}) {
+        background: lighten(nth($colors, $i), 0);
+    }
+}
+
+
+body{margin:0;}
+h1{margin:0; text-align:center;}
+
+.container{ max-width:1280px; margin:0 auto; }
+
+.grid-container{ list-style:none; padding:0; margin:0 auto; outline:1px solid #fff;position:relative; }
+.grid_item{ float:left; box-sizing:border-box; width:100%; min-height:20px; outline:1px solid #fff; }
+
+
+@media (min-width:toPX($breakpoint-smallest)){
+
+  $gridWidth : $breakpoint-smallest;
+  $gridHeight : 380;
+  
+  $numberOfColumns : 5;
+  $numberOfRows : 5;
+  
+  $boxWidth: ($gridWidth / $numberOfColumns);
+  $boxHeight : ($gridHeight / $numberOfRows);
+  
+  
+  .grid-container{ width: toPX($breakpoint-smallest); }
+  .grid_item{ position:absolute;  }
+
+    /* Widths */
+  .grid_1-col-w{ width: toPX(box-size($boxWidth,1)); }
+  .grid_2-col-w{ width: toPX(box-size($boxWidth,2)); }
+  .grid_3-col-w{ width: toPX(box-size($boxWidth,3)); }
+  .grid_4-col-w{ width: toPX(box-size($boxWidth,4)); }
+  .grid_5-col-w{ width: toPX(box-size($boxWidth,5)); }
+
+  /* Heights */
+  .grid_1-col-h{ height: toPX(box-size($boxHeight,1)); }
+  .grid_2-col-h{ height: toPX(box-size($boxHeight,2)); }
+  .grid_3-col-h{ height: toPX(box-size($boxHeight,3)); }
+  .grid_4-col-h{ height: toPX(box-size($boxHeight,4)); }
+  .grid_5-col-h{ height: toPX(box-size($boxHeight,5)); }
+
+  .grid_pos-0-0{ left:0px; top:0; }
+  .grid_pos-0-x{ left:0; }
+  .grid_pos-0-y{ top:0; }
+
+  .grid_pos-1-0{ left: toPX($boxWidth); }
+  .grid_pos-2-0{ left: toPX($boxWidth * 2); }
+  .grid_pos-3-0{ left: toPX($boxWidth * 3); }
+  .grid_pos-4-0{ left: toPX($boxWidth * 4); }
+
+  .grid_pos-0-1{ top: toPX($boxHeight); }
+  .grid_pos-0-2{ top: toPX($boxHeight * 2); }
+  .grid_pos-0-3{ top: toPX($boxHeight * 3); }
+  .grid_pos-0-4{ top: toPX($boxHeight * 4); }
+
+}
+
+
+@media (min-width:toPX($breakpoint-small)){
+
+  $gridWidth : $breakpoint-small;
+  $gridHeight : 500;
+  
+  $numberOfColumns : 5;
+  $numberOfRows : 5;
+  
+  $boxWidth: ($gridWidth / $numberOfColumns);
+  $boxHeight : ($gridHeight / $numberOfRows);
+  
+  
+  .grid-container{ width: toPX($breakpoint-small); }
+  .grid_item{ position:absolute;  }
+
+    /* Widths */
+  .grid_1-col-w{ width: toPX(box-size($boxWidth,1)); }
+  .grid_2-col-w{ width: toPX(box-size($boxWidth,2)); }
+  .grid_3-col-w{ width: toPX(box-size($boxWidth,3)); }
+  .grid_4-col-w{ width: toPX(box-size($boxWidth,4)); }
+  .grid_5-col-w{ width: toPX(box-size($boxWidth,5)); }
+
+  /* Heights */
+  .grid_1-col-h{ height: toPX(box-size($boxHeight,1)); }
+  .grid_2-col-h{ height: toPX(box-size($boxHeight,2)); }
+  .grid_3-col-h{ height: toPX(box-size($boxHeight,3)); }
+  .grid_4-col-h{ height: toPX(box-size($boxHeight,4)); }
+  .grid_5-col-h{ height: toPX(box-size($boxHeight,5)); }
+
+  .grid_pos-0-0{ left:0px; top:0; }
+  .grid_pos-0-x{ left:0; }
+  .grid_pos-0-y{ top:0; }
+
+  .grid_pos-1-0{ left: toPX($boxWidth); }
+  .grid_pos-2-0{ left: toPX($boxWidth * 2); }
+  .grid_pos-3-0{ left: toPX($boxWidth * 3); }
+  .grid_pos-4-0{ left: toPX($boxWidth * 4); }
+
+  .grid_pos-0-1{ top: toPX($boxHeight); }
+  .grid_pos-0-2{ top: toPX($boxHeight * 2); }
+  .grid_pos-0-3{ top: toPX($boxHeight * 3); }
+  .grid_pos-0-4{ top: toPX($boxHeight * 4); }
+
+}
+
+@media (min-width: toPX($breakpoint-medium)){
+  
+  $gridWidth : $breakpoint-medium;
+  $gridHeight : 600;
+  
+  $numberOfColumns : 5;
+  $numberOfRows : 5;
+  
+  $boxWidth: ($gridWidth / $numberOfColumns);
+  $boxHeight : ($gridHeight / $numberOfRows);
+  
+  .grid-container{ width: toPX($breakpoint-medium); }
+
+  /* Widths */
+  .grid_1-col-w{ width: toPX(box-size($boxWidth,1)); }
+  .grid_2-col-w{ width: toPX(box-size($boxWidth,2)); }
+  .grid_3-col-w{ width: toPX(box-size($boxWidth,3)); }
+  .grid_4-col-w{ width: toPX(box-size($boxWidth,4)); }
+  .grid_5-col-w{ width: toPX(box-size($boxWidth,5)); }
+
+  /* Heights */
+  .grid_1-col-h{ height: toPX(box-size($boxHeight,1)); }
+  .grid_2-col-h{ height: toPX(box-size($boxHeight,2)); }
+  .grid_3-col-h{ height: toPX(box-size($boxHeight,3)); }
+  .grid_4-col-h{ height: toPX(box-size($boxHeight,4)); }
+  .grid_5-col-h{ height: toPX(box-size($boxHeight,5)); }
+
+  .grid_pos-0-0{ left:0px; top:0; }
+  .grid_pos-0-x{ left:0; }
+  .grid_pos-0-y{ top:0; }
+
+  .grid_pos-1-0{ left: toPX($boxWidth); }
+  .grid_pos-2-0{ left: toPX($boxWidth * 2); }
+  .grid_pos-3-0{ left: toPX($boxWidth * 3); }
+  .grid_pos-4-0{ left: toPX($boxWidth * 4); }
+
+  .grid_pos-0-1{ top: toPX($boxHeight); }
+  .grid_pos-0-2{ top: toPX($boxHeight * 2); }
+  .grid_pos-0-3{ top: toPX($boxHeight * 3); }
+  .grid_pos-0-4{ top: toPX($boxHeight * 4); }
+
+
+}
+
+@media (min-width: toPX($breakpoint-large) ){
+
+  $gridWidth : $breakpoint-large;
+  $gridHeight : 778;
+  
+  $numberOfColumns : 5;
+  $numberOfRows : 5;
+  
+  $boxWidth: ($gridWidth / $numberOfColumns);
+  $boxHeight : ($gridHeight / $numberOfRows);
+
+  .grid-container{ width: toPX($breakpoint-large); height: toPX($gridHeight); }
+ 
+
+  /* Widths */
+  .grid_1-col-w{ width: toPX(box-size($boxWidth,1)); }
+  .grid_2-col-w{ width: toPX(box-size($boxWidth,2)); }
+  .grid_3-col-w{ width: toPX(box-size($boxWidth,3)); }
+  .grid_4-col-w{ width: toPX(box-size($boxWidth,4)); }
+  .grid_5-col-w{ width: toPX(box-size($boxWidth,5)); }
+
+  /* Heights */
+  .grid_1-col-h{ height: toPX(box-size($boxHeight,1)); }
+  .grid_2-col-h{ height: toPX(box-size($boxHeight,2)); }
+  .grid_3-col-h{ height: toPX(box-size($boxHeight,3)); }
+  .grid_4-col-h{ height: toPX(box-size($boxHeight,4)); }
+  .grid_5-col-h{ height: toPX(box-size($boxHeight,5)); }
+
+  .grid_pos-0-0{ left:0px; top:0; }
+  .grid_pos-0-x{ left:0; }
+  .grid_pos-0-y{ top:0; }
+
+  .grid_pos-1-0{ left: toPX($boxWidth); }
+  .grid_pos-2-0{ left: toPX($boxWidth * 2); }
+  .grid_pos-3-0{ left: toPX($boxWidth * 3); }
+  .grid_pos-4-0{ left: toPX($boxWidth * 4); }
+
+  .grid_pos-0-1{ top: toPX($boxHeight); }
+  .grid_pos-0-2{ top: toPX($boxHeight * 2); }
+  .grid_pos-0-3{ top: toPX($boxHeight * 3); }
+  .grid_pos-0-4{ top: toPX($boxHeight * 4); }
+
+}
